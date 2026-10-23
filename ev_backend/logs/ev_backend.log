@@ -515,3 +515,4 @@ TypeError: 'NoneType' object is not subscriptable
 2026-10-23 16:27:03,423 INFO app.services.diagnosis: case C-20261023-9C3EEBCE diagnosed: requires_further_investigation / payment_or_billing_failure (strength 0.00, steps 2)
 2026-10-23 16:27:03,439 INFO app.services.feedback: resolution 1 stored for case C-20261023-9C3EEBCE by rev-001 (prediction_correct=1)
 2026-10-23 16:27:03,444 INFO app.services.feedback: learning applied for resolution 1: 0 changes
+2026-10-23 16:41:21,038 WARNING app.main: evaluation router not available yet
