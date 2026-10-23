@@ -191,7 +191,9 @@ _CONFLICT_TEMPLATES = {"T18"}
 
 
 def _is_conflict_template(scenario_id: str, dataset: SyntheticDataset) -> bool:
-    # scenario index -> template mapping mirrors TEMPLATES order
+    # scenario index -> template mapping mirrors TEMPLATES order.
+    # TEMPLATES tuples are (tid, key, primary, secondary, pool, difficulty)
+    # with 6 fields; the conflict marker lives in field index 5 (difficulty).
     from app.data.synthetic_generator import TEMPLATES
     try:
         idx = int(scenario_id.split("-")[-1])
@@ -200,7 +202,8 @@ def _is_conflict_template(scenario_id: str, dataset: SyntheticDataset) -> bool:
     per = dataset.n_per_template
     tpos = (idx - 1) // per
     if 0 <= tpos < len(TEMPLATES):
-        return TEMPLATES[tpos][6 - 1] in _CONFLICT_TEMPLATES if len(TEMPLATES[tpos]) >= 6 else False
+        tpl = TEMPLATES[tpos]
+        return len(tpl) >= 6 and tpl[5] == "conflicting"
     return False
 
 
