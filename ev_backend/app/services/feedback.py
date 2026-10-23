@@ -162,6 +162,11 @@ def compute_updates(conn: sqlite3.Connection, resolution_id: int
             continue
         sig, cat, w = rule["signal_key"], rule["category"], rule["weight"]
         covered_signals.add(sig)
+        # No-op when already at a clamp boundary (keeps audit log clean).
+        if cat in verified_set and w >= wmax - 1e-9:
+            continue
+        if cat not in verified_set and w <= wmin + 1e-9:
+            continue
         if cat in verified_set:
             new_w = min(wmax, round(w + lr, 4)) if correct else min(wmax, round(w + lr / 2, 4))
             reason = ("Reinforced: verified resolution confirms this signal supports "
