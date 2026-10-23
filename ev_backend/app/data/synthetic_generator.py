@@ -446,9 +446,11 @@ class SyntheticDataset:
                 "INSERT OR IGNORE INTO cases(case_id, app_id,"
                 " complaint_text_redacted, complaint_ts, reported_error,"
                 " reported_payment_status, reported_session_ref,"
-                " reported_station_id, user_ref, data_origin, status,"
+                " reported_station_id, user_ref, data_origin,"
                 " ground_truth_category, scenario_id)"
-                " VALUES (?,?,?,?,?,?,?,?,?,?,?, 'diagnosed', ?, ?)",
+                # 12 columns: status is left to its schema default ('open');
+                # evaluation/diagnosis runs create real diagnoses separately.
+                " VALUES (?,?,?,?,?,?,?,?,?,?,?,?)",
                 (c["case_id"], c["app_id"], c["complaint_text"],
                  c["complaint_ts"], c["reported_error"],
                  c["reported_payment_status"], c["reported_session_ref"],
