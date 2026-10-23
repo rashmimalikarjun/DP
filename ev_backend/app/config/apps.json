@@ -1,0 +1,69 @@
+{
+  "apps": [
+    {
+      "id": "ehub_mg",
+      "display_name": "e-Hub by MG",
+      "app_type": "charging_network",
+      "applicable_categories": ["*"]
+    },
+    {
+      "id": "tata_power_ez_charge",
+      "display_name": "Tata Power EZ Charge",
+      "app_type": "charging_network",
+      "applicable_categories": ["*"]
+    },
+    {
+      "id": "statiq",
+      "display_name": "Statiq",
+      "app_type": "charging_network",
+      "applicable_categories": ["*"]
+    },
+    {
+      "id": "chargezone",
+      "display_name": "ChargeZone",
+      "app_type": "charging_network",
+      "applicable_categories": ["*"]
+    },
+    {
+      "id": "kazam_ev",
+      "display_name": "Kazam EV",
+      "app_type": "charging_network",
+      "applicable_categories": ["*"]
+    },
+    {
+      "id": "zeon_charging",
+      "display_name": "Zeon Charging",
+      "app_type": "charging_network",
+      "applicable_categories": ["*"]
+    },
+    {
+      "id": "plugshare",
+      "display_name": "PlugShare",
+      "app_type": "discovery",
+      "comment": "Discovery/community-data app. It shows station availability and status sourced from community reports, but does NOT process payments itself, so payment_or_billing_failure is not applicable. Emphasis: availability mismatch, incorrect/delayed station status, app errors, incomplete history.",
+      "applicable_categories": [
+        "charger_availability_mismatch",
+        "incorrect_or_delayed_station_status",
+        "app_crash_or_technical_error",
+        "network_or_connectivity_issue",
+        "incorrect_or_incomplete_charging_history",
+        "customer_support_issue"
+      ]
+    },
+    {
+      "id": "bajaj_chetak",
+      "display_name": "Bajaj Chetak App",
+      "app_type": "vehicle_companion",
+      "comment": "Connected-vehicle companion app for the Bajaj Chetak EV scooter. Categories centre on vehicle telematics, app technical errors, charging-history accuracy, support issues and vehicle-charger communication. Payment/billing failure, station availability mismatch and network-reported station status are NOT applicable because the app neither processes charging payments nor publishes public-network station status; it reflects the vehicle's own state.",
+      "applicable_categories": [
+        "vehicle_specific_or_telematics_issue",
+        "app_crash_or_technical_error",
+        "incorrect_or_incomplete_charging_history",
+        "customer_support_issue",
+        "vehicle_charger_communication_issue",
+        "session_fails_to_start",
+        "connector_or_charger_hardware_fault"
+      ]
+    }
+  ]
+}
