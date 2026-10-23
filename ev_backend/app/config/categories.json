@@ -1,0 +1,76 @@
+{
+  "categories": [
+    {
+      "id": "charger_availability_mismatch",
+      "label": "Charger availability mismatch",
+      "description": "App showed a charger/station as available but it was actually occupied, offline or out of order.",
+      "example_signals": ["status_log_shows_offline_while_app_showed_available", "community_report_conflict", "reported_occupied_at_visit"]
+    },
+    {
+      "id": "session_fails_to_start",
+      "label": "Session fails to start",
+      "description": "Charging session never starts after initiating from the app (no energy delivered).",
+      "example_signals": ["start_request_without_started_event", "error_code_E101_START_TIMEOUT", "zero_energy_kwh", "authorize_then_no_start"]
+    },
+    {
+      "id": "session_stops_unexpectedly",
+      "label": "Session stops unexpectedly",
+      "description": "A started charging session terminates early before target SoC/completion.",
+      "example_signals": ["heartbeat_lost", "unexpected_stop_reason", "short_duration_low_energy", "connector_fault_mid_session"]
+    },
+    {
+      "id": "payment_or_billing_failure",
+      "label": "Payment or billing failure",
+      "description": "Money deducted without service, wrong amount, double charge, refund pending or transaction stuck.",
+      "example_signals": ["payment_captured_without_session", "double_charge_same_session", "refund_pending_over_days", "amount_mismatch", "payment_failed_but_charged"]
+    },
+    {
+      "id": "incorrect_or_delayed_station_status",
+      "label": "Incorrect or delayed station status",
+      "description": "Station/charger status shown in the app is stale or wrong relative to the network log.",
+      "example_signals": ["status_update_lag_minutes", "reported_status_differs_from_source", "no_status_update_since_ts"]
+    },
+    {
+      "id": "app_crash_or_technical_error",
+      "label": "App crash or technical error",
+      "description": "The mobile app itself crashes, freezes, or shows an unhandled technical error screen.",
+      "example_signals": ["app_error_event", "crash_report_signal", "ui_freeze_on_start_button", "error_code_APP500"]
+    },
+    {
+      "id": "network_or_connectivity_issue",
+      "label": "Network or connectivity issue",
+      "description": "Connectivity loss between app and server, or charger and cloud (heartbeat lost, timeouts).",
+      "example_signals": ["heartbeat_lost", "connection_timeout_events", "charger_offline_period", "no_network_at_station"]
+    },
+    {
+      "id": "connector_or_charger_hardware_fault",
+      "label": "Connector or charger hardware fault",
+      "description": "Physical fault in connector/gun/charger: locking failure, overheating, fault codes from hardware.",
+      "example_signals": ["connector_fault_event", "error_code_HW2xx", "overtemperature", "locking_mechanism_fail"]
+    },
+    {
+      "id": "vehicle_charger_communication_issue",
+      "label": "Vehicle-charger communication issue",
+      "description": "Handshake/protocol negotiation between vehicle and charger fails (e.g. ISO 15118 / CAN handshake).",
+      "example_signals": ["handshake_failed", "no_response_from_vehicle", "protocol_mismatch", "error_code_HS3xx"]
+    },
+    {
+      "id": "incorrect_or_incomplete_charging_history",
+      "label": "Incorrect or incomplete charging history",
+      "description": "Past sessions missing, duplicated or with wrong values in the app's charging history view.",
+      "example_signals": ["missing_completed_session_in_history", "duplicate_history_entry", "history_amount_mismatch_vs_payment"]
+    },
+    {
+      "id": "customer_support_issue",
+      "label": "Customer support issue",
+      "description": "Complaint about slow/unhelpful support, no response to tickets, unresolved refunds via support.",
+      "example_signals": ["support_ticket_open_over_days", "no_response_signal", "refund_escalation_pending"]
+    },
+    {
+      "id": "vehicle_specific_or_telematics_issue",
+      "label": "Vehicle-specific or telematics issue",
+      "description": "Companion-app telemetry wrong: SoC not updating, range display wrong, vehicle offline in app, BMS errors.",
+      "example_signals": ["telemetry_stale_last_seen", "soc_not_updating", "vehicle_offline_in_companion_app", "bms_error_signal"]
+    }
+  ]
+}

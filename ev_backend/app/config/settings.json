@@ -1,0 +1,39 @@
+{
+  "max_steps": 8,
+  "min_expected_gain": 0.05,
+  "thresholds": {
+    "confirmed_min_strength": 0.75,
+    "confirmed_min_evidence_items": 3,
+    "confirmed_min_source_tools": 2,
+    "probable_min_strength": 0.45,
+    "secondary_contributing_min_strength": 0.30,
+    "top_category_confidence_stop": 0.60
+  },
+  "learning": {
+    "learning_rate": 0.10,
+    "weight_min": 0.05,
+    "weight_max": 1.0,
+    "prior_step": 0.10,
+    "prior_min": 0.0,
+    "prior_max": 1.0,
+    "new_rule_proposal_min_cases": 3,
+    "new_rules_start_active": false
+  },
+  "seed": 42,
+  "tool_costs": {
+    "session_lookup": 0.05,
+    "timeline_check": 0.10,
+    "error_code_check": 0.05,
+    "payment_check": 0.05,
+    "connectivity_check": 0.10,
+    "connector_check": 0.10,
+    "handshake_check": 0.10,
+    "station_status_check": 0.10,
+    "history_check": 0.05,
+    "app_error_check": 0.05,
+    "telematics_check": 0.10,
+    "similar_cases_check": 0.15
+  },
+  "cors_origins": ["http://localhost:5173"],
+  "log_level": "INFO"
+}
