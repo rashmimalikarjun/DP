@@ -1,1 +1,4 @@
-ev_diagnosis.db
+__pycache__/
+*.pyc
+logs/
+*.log
